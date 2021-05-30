@@ -14,15 +14,6 @@ void	finish_it(int errnum, t_data *data)
 	exit (0);
 }
 
-void	display_error(int errnum)
-{
-	write(2, "Error\n", 6);
-	if (errnum == ERR_ARGS)
-		write(2, "Something wrong with arguments.\n", 32);
-	else
-		write(2, strerror(errnum), aka_strlen(strerror(errnum)));
-}
-
 void	check_args(int argc, char **argv, t_data *data)
 {
 	if (argc != 2 || aka_strlen(argv[1]) < 5

@@ -30,3 +30,12 @@ int	aka_strcmp(const char *s1, const char *s2)
 		i++;
 	return (s1[i] - s2[i]);
 }
+
+void	display_error(int errnum)
+{
+	write(2, "Error\n", 6);
+	if (errnum == ERR_ARGS)
+		write(2, "Something wrong with arguments.\n", 32);
+	else
+		write(2, strerror(errnum), aka_strlen(strerror(errnum)));
+}
