@@ -19,6 +19,7 @@
 
 # define BUFFER_SIZE 64
 # define ERR_ARGS 222
+# define ERR_READ 223
 
 void	display_error(int errnum);
 

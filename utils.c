@@ -102,7 +102,10 @@ void	display_error(int errnum)
 {
 	write(2, "Error\n", 6);
 	if (errnum == ERR_ARGS)
-		write(2, "Something wrong with arguments.\n", 32);
+		write(2, "Something wrong with arguments", 30);
+	else if (errnum == ERR_READ)
+		write(2, "Something wrong with the config file", 36);
 	else
 		write(2, strerror(errnum), aka_strlen(strerror(errnum)));
+	write(2, "\n", 1);
 }
