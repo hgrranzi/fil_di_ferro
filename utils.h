@@ -17,6 +17,7 @@
 
 # include <string.h>
 
+# define BUFFER_SIZE 64
 # define ERR_ARGS 222
 
 void	display_error(int errnum);
@@ -24,5 +25,9 @@ void	display_error(int errnum);
 int		aka_isdigit(char c);
 size_t	aka_strlen(const char *s);
 int		aka_strcmp(const char *s1, const char *s2);
+int		take_line(int fd, char **line);
+char	*aka_strdup(const char *s);
+char	*aka_strchr(const char *s, int c);
+char	*aka_strjoin(char const *s1, char const *s2);
 
 #endif
