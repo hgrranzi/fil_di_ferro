@@ -56,7 +56,7 @@ char	*aka_strdup(const char *s)
 
 char	*aka_strchr(const char *s, int c)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s[i] != '\0')

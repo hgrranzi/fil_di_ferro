@@ -21,6 +21,7 @@ typedef struct s_data
 	void	*mlx_p;
 	void	*win_p;
 	int		**map;
+	int		map_width;
 }				t_data;
 
 void	check_args(int argc, char **argv, t_data *data);
