@@ -23,6 +23,7 @@ typedef struct s_data
 	int		**map;
 }				t_data;
 
-void	check_args(int argc, char **argv);
+void	check_args(int argc, char **argv, t_data *data);
+void	finish_it(int errnum, t_data *data);
 
 #endif
