@@ -17,9 +17,11 @@
 
 # include <string.h>
 
+# define MAX_INT 2147483647
 # define BUFFER_SIZE 64
 # define ERR_ARGS 222
 # define ERR_READ 223
+# define ERR_MAP 224
 
 void	display_error(int errnum);
 

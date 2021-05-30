@@ -24,7 +24,9 @@ typedef struct s_data
 }				t_data;
 
 void	check_args(int argc, char **argv, t_data *data);
+
 void	check_config(t_data *data, char *filename);
+void	check_line(char *line, t_data *data);
 
 void	init_data(t_data *data);
 void	remove_data(t_data *data);
