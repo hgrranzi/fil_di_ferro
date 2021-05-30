@@ -19,5 +19,6 @@ int	main(int argc, char **argv)
 
 	init_data(&data);
 	check_args(argc, argv, &data);
+	check_config(&data, argv[1]);
 	return (0);
 }
