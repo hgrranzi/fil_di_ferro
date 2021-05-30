@@ -24,6 +24,9 @@ typedef struct s_data
 }				t_data;
 
 void	check_args(int argc, char **argv, t_data *data);
+
+void	init_data(t_data *data);
+void	remove_data(t_data *data);
 void	finish_it(int errnum, t_data *data);
 
 #endif
