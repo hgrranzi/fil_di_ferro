@@ -23,5 +23,6 @@ typedef struct s_data
 	int		**map;
 }				t_data;
 
+void	check_args(int argc, char **argv);
 
 #endif
