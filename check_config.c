@@ -15,8 +15,6 @@ void	check_line(char *line, t_data *data)
 		i++;
 	if (line[i] != '\0')
 		finish_it(ERR_MAP, data);
-	if (i - 1 > data->map_width)
-		data->map_width = i - 1;
 }
 
 void	check_config(t_data *data, char *filename)
@@ -30,17 +28,13 @@ void	check_config(t_data *data, char *filename)
 		finish_it(errno, data);
 	line = NULL;
 	line_len = 1;
-	data->map_width = -MAX_INT;
 	while (line_len > 0)
 	{
 		line_len = take_line(fd, &line);
 		if (*line != '\0')
 			check_line(line, data);
 			// add to list?
-		free(line);
-		line = NULL;
 	}
-	free(line);
 	if (line_len == -1)
 		finish_it(ERR_READ, data);
 }
