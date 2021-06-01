@@ -8,6 +8,7 @@
 # define FIL_DI_FERRO_H
 
 # include "utils.h"
+# include "mlx/mlx.h"
 
 typedef struct s_vector
 {

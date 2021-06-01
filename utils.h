@@ -13,7 +13,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
-# include "mlx/mlx.h"
 
 # include <string.h>
 
