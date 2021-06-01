@@ -6,7 +6,7 @@
 
 #include "utils.h"
 
-t_lst	*new_lst(void const *content)
+t_lst	*new_lst(void *content)
 {
 	t_lst	*new_lst;
 
@@ -17,4 +17,26 @@ t_lst	*new_lst(void const *content)
 		new_lst->next = NULL;
 	}
 	return (new_lst);
+}
+
+t_lst	*last_lst(t_lst **first_lst)
+{
+	t_lst	*last_lst;
+
+	last_lst = *first_lst;
+	if (last_lst)
+		while (last_lst->next)
+			last_lst = last_lst->next;
+	return (last_lst);
+}
+
+void	add_lst(t_lst **first_lst, t_lst *new_lst)
+{
+	t_lst *lst_p;
+
+	lst_p = last_lst(first_lst);
+	if (lst_p)
+		lst_p->next = new_lst;
+	else
+		*first_lst = new_lst;
 }

@@ -26,7 +26,7 @@
 typedef struct		s_lst
 {
 	void			*content;
-	struct s_list	*next;
+	struct s_lst	*next;
 }					t_lst;
 
 void	display_error(int errnum);
@@ -39,6 +39,8 @@ char	*aka_strdup(const char *s);
 char	*aka_strchr(const char *s, int c);
 char	*aka_strjoin(char const *s1, char const *s2);
 
-t_lst	*new_lst(void const *content);
+t_lst	*new_lst(void *content);
+t_lst	*last_lst(t_lst **first_lst);
+void	add_lst(t_lst **first_lst, t_lst *new_lst);
 
 #endif
