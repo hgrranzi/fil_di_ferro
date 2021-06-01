@@ -23,6 +23,12 @@
 # define ERR_READ 223
 # define ERR_MAP 224
 
+typedef struct		s_lst
+{
+	void			*content;
+	struct s_list	*next;
+}					t_lst;
+
 void	display_error(int errnum);
 
 int		aka_isdigit(char c);
@@ -32,5 +38,7 @@ int		take_line(int fd, char **line);
 char	*aka_strdup(const char *s);
 char	*aka_strchr(const char *s, int c);
 char	*aka_strjoin(char const *s1, char const *s2);
+
+t_lst	*new_lst(void const *content);
 
 #endif
