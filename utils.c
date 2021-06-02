@@ -98,6 +98,11 @@ char	*aka_strjoin(char const *s1, char const *s2)
 	return (new_str);
 }
 
+int	aka_atoi_base(char *line, int base)
+{
+	return (0);
+}
+
 void	display_error(int errnum)
 {
 	write(2, "Error\n", 6);

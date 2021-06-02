@@ -43,6 +43,7 @@ int		take_line(int fd, char **line);
 char	*aka_strdup(const char *s);
 char	*aka_strchr(const char *s, int c);
 char	*aka_strjoin(char const *s1, char const *s2);
+int		aka_atoi_base(char *line, int base);
 
 t_lst	*new_lst(void *content);
 t_lst	*last_lst(t_lst **first_lst);
