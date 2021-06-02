@@ -22,10 +22,8 @@ int	get_nbr(char *point)
 	return (nbr);
 }
 
-int	check_point(char *point, t_data *data)
+int	check_point(char *point, t_data *data, int map_i, int i)
 {
-	int		nbr_map; //data->map[i]
-	int		nbr_color; // data->colors[i]
 	int		base;
 	char	*comma_p;
 
@@ -34,28 +32,32 @@ int	check_point(char *point, t_data *data)
 	{
 		*comma_p = '\0';
 		comma_p++;
-		nbr_color = get_nbr(comma_p);
+		data->colors[map_i][i] = get_nbr(comma_p);
 	}
 	else
-		nbr_color = WHITE_COLOR;
-	nbr_map = get_nbr(point);
-	if (nbr_map == ERR_ATOI || nbr_color == ERR_ATOI || nbr_color < BLACK_COLOR || nbr_color > WHITE_COLOR)
+		data->colors[map_i][i] = WHITE_COLOR;
+	data->map[map_i][i] = get_nbr(point);
+	if (data->map[map_i][i] == ERR_ATOI || data->colors[map_i][i] == ERR_ATOI || data->colors[map_i][i] < BLACK_COLOR || data->colors[map_i][i] > WHITE_COLOR)
 		return(FAIL); // atoi должен проверять что после числа '\0'
 	return (SUCCES);
 }
 
-int	get_points(char *line, t_data *data)
+int	get_points(char *line, t_data *data, int map_i)
 {
 	char	**points;
 	int		i;
 
 	i = 0;
 	points = split_line(line, ' ');
+	if (!data->map_width)
+		data->map_width = words_count(points, ' ');
 	if (points)
 	{
+		data->map[map_i] = calloc(data->map_width + 1, sizeof(int));
+		data->colors[map_i] = calloc(data->map_width + 1, sizeof(int));
 		while (points[i])
 		{
-			if (!(check_point(points[i], data)))
+			if (!(check_point(points[i], data, map_i, i)))
 				break ;
 			i++;
 		}
@@ -68,15 +70,17 @@ int	get_points(char *line, t_data *data)
 void	save_config(t_lst **first_lst, t_data *data)
 {
 	t_lst	*lst_p;
+	int		map_i;
 
 	lst_p = *first_lst;
 	data->map = calloc(data->map_height + 1, sizeof(int *)); // need my own calloc
 	data->colors = calloc(data->map_height + 1, sizeof(int *));
 	if (data->map && data->colors)
 	{
+		map_i = 0;
 		while (lst_p)
 		{
-			if (!(get_points(lst_p->content, data)))
+			if (!(get_points(lst_p->content, data, map_i)))
 				break ;
 			lst_p = lst_p->next;
 		}
