@@ -6,9 +6,41 @@
 
 #include "fil_di_ferro.h"
 
+int	get_nbr(char *point)
+{
+	int	nbr;
+
+	if (point[0] == '0')
+	{
+		if (point[1] == 'x' || point[1] == 'X')
+			nbr = aka_atoi_base(point[2], 16);
+		else
+			nbr = aka_atoi_base(point[1], 8);
+	}
+	else
+		nbr = aka_atoi_base(point, 10);
+	return (nbr);
+}
+
 int	check_point(char *point, t_data *data)
 {
-	//here coordinates will be writen into map
+	int		nbr_map; //data->map[i]
+	int		nbr_color; // data->colors[i]
+	int		base;
+	char	*comma_p;
+
+	comma_p = aka_strchr(point, ',');
+	if (comma_p)
+	{
+		*comma_p = '\0';
+		comma_p++;
+		nbr_color = get_nbr(comma_p);
+	}
+	else
+		nbr_color = WHITE_COLOR;
+	nbr_map = get_nbr(point);
+	if (nbr_map == ERR_ATOI || nbr_color == ERR_ATOI || nbr_color < BLACK_COLOR || nbr_color > WHITE_COLOR)
+		return(FAIL); // atoi должен проверять что после числа '\0'
 	return (SUCCES);
 }
 

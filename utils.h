@@ -17,8 +17,11 @@
 # include <string.h>
 
 # define MAX_INT 2147483647
+# define ERR_ATOI 1073741824
 # define BUFFER_SIZE 64
 # define VALID_CHARS "+-x, ABCDEFabcdef"
+# define BLACK_COLOR 0
+# define WHITE_COLOR 16777215
 # define SUCCES 1
 # define FAIL 0
 # define ERR_ARGS 222
