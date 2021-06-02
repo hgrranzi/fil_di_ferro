@@ -19,6 +19,8 @@
 # define MAX_INT 2147483647
 # define BUFFER_SIZE 64
 # define VALID_CHARS "+-x, ABCDEFabcdef"
+# define SUCCES 1
+# define FAIL 0
 # define ERR_ARGS 222
 # define ERR_READ 223
 # define ERR_MAP 224
@@ -42,5 +44,9 @@ char	*aka_strjoin(char const *s1, char const *s2);
 t_lst	*new_lst(void *content);
 t_lst	*last_lst(t_lst **first_lst);
 void	add_lst(t_lst **first_lst, t_lst *new_lst);
+
+char	**split_line(char *s, char c);
+char	*trim_line(char *s, char const *set);
+size_t	words_count(const char *s, char delimiter);
 
 #endif

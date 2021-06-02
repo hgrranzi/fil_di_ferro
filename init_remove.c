@@ -11,8 +11,24 @@ void	init_data(t_data *data)
 	data->mlx_p = NULL;
 	data->win_p = NULL;
 	data->map = NULL;
+	data->colors = NULL;
 	data->map_width = 0;
 	data->map_height = 0;
+}
+
+void	free_arr(int **arr)
+{
+	int	i;
+
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		arr[i] = NULL;
+		i++;
+	}
+	free(arr);
+	arr = NULL;
 }
 
 void	remove_data(t_data *data)
@@ -21,8 +37,10 @@ void	remove_data(t_data *data)
 	data->mlx_p = NULL;
 	free(data->win_p);
 	data->win_p = NULL;
-	free(data->map);
-	data->map = NULL;
+	if (data->map)
+		free_arr(data->map);
+	if (data->colors)
+		free_arr(data->colors);
 }
 
 void	finish_it(int errnum, t_data *data)
