@@ -6,25 +6,6 @@
 
 #include "fil_di_ferro.h"
 
-void	check_line(char *line, t_data *data)
-{
-	int	i;
-
-	i = 0;
-	if (line == '\0')
-	{
-		free(line);
-		line = NULL;
-	}
-	else
-	{
-		while (line[i] && (aka_isdigit(line[i]) || aka_strchr(VALID_CHARS, line[i])))
-			i++;
-		if (line[i] != '\0')
-			finish_it(ERR_MAP, data);
-	}
-	// probably better to count number of points in the line here
-}
 int	check_point(char *point, t_data *data)
 {
 	//here coordinates will be writen into map
@@ -93,9 +74,11 @@ void	check_config(t_data *data, char *filename)
 	while (line_len > 0)
 	{
 		line_len = take_line(fd, &line);
-		check_line(line, data); // probably no need to check line before save config
 		if (*line)
+		{
 			add_lst(&line_lst, new_lst(line));
+			data->map_height++;
+		}
 	}
 	if (line_len == -1)
 		finish_it(ERR_READ, data);

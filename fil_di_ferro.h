@@ -30,8 +30,9 @@ typedef struct s_data
 void	check_args(int argc, char **argv, t_data *data);
 
 void	check_config(t_data *data, char *filename);
-void	check_line(char *line, t_data *data);
 void	save_config(t_lst **first_lst, t_data *data);
+int		get_points(char *line, t_data *data);
+int		check_point(char *point, t_data *data);
 
 void	init_data(t_data *data);
 void	remove_data(t_data *data);
