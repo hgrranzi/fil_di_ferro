@@ -23,6 +23,7 @@ typedef struct s_data
 	void	*win_p;
 	int		**map;
 	int		map_width;
+	int		map_height;
 }				t_data;
 
 void	check_args(int argc, char **argv, t_data *data);
