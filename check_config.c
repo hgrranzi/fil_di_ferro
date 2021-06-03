@@ -38,7 +38,7 @@ int	check_point(char *point, t_data *data, int map_i, int i)
 		data->colors[map_i][i] = WHITE_COLOR;
 	data->map[map_i][i] = get_nbr(point);
 	if (data->map[map_i][i] == ERR_ATOI || data->colors[map_i][i] == ERR_ATOI || data->colors[map_i][i] < BLACK_COLOR || data->colors[map_i][i] > WHITE_COLOR)
-		return(FAIL);
+		return (FAIL);
 	return (SUCCES);
 }
 
@@ -62,6 +62,7 @@ int	get_points(char *line, t_data *data, int map_i)
 		}
 		if (points[i])
 			return (FAIL);
+		free_all(points);
 		return (SUCCES);
 	}
 	return (FAIL);
@@ -82,17 +83,17 @@ void	save_config(t_lst **first_lst, t_data *data)
 		{
 			if (!(get_points(lst_p->content, data, map_i)))
 				break ;
+			free(lst_p->content);
 			lst_p = lst_p->next;
 			map_i++;
 		}
 	}
 	if (lst_p)
 	{
-		// remove lst
+		remove_all_lst(first_lst);
 		finish_it(ERR_READ, data);
 	}
-	// remove lst
-
+	remove_all_lst(first_lst);
 }
 
 void	check_config(t_data *data, char *filename)
@@ -115,6 +116,11 @@ void	check_config(t_data *data, char *filename)
 		{
 			add_lst(&line_lst, new_lst(line));
 			data->map_height++;
+		}
+		else
+		{
+			free(line);
+			line = NULL;
 		}
 	}
 	if (line_len == -1)

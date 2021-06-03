@@ -30,7 +30,7 @@ static char	*strdup_char(const char *s, char c)
 	return (new_str);
 }
 
-static char	**free_all(char **arr)
+char	**free_all(char **arr)
 {
 	int	i;
 
@@ -82,8 +82,6 @@ char	*trim_line(char *s, char c)
 		finish_trim--;
 	}
 	trimmed_str = aka_strdup(&s[start_trim]);
-	free(s);
-	s = NULL;
 	return (trimmed_str);
 }
 
@@ -112,5 +110,7 @@ char	**split_line(char *s, char c, int *arr_len)
 			start++;
 		i++;
 	}
+	free(new_str);
+	new_str = NULL;
 	return (arr);
 }

@@ -40,3 +40,23 @@ void	add_lst(t_lst **first_lst, t_lst *new_lst)
 	else
 		*first_lst = new_lst;
 }
+
+void	remove_lst(t_lst **lst)
+{
+	free(*lst);
+	*lst = NULL;
+}
+
+void	remove_all_lst(t_lst **first_lst)
+{
+	t_lst	*lst_p;
+
+	while (*first_lst)
+	{
+		lst_p = *first_lst;
+		*first_lst = (*first_lst)->next;
+		remove_lst(&lst_p);
+		lst_p = NULL;
+	}
+	lst_p = NULL;
+}

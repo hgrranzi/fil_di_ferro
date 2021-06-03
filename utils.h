@@ -52,9 +52,12 @@ int		aka_atoi_base(char *line, int base, char *base_line);
 t_lst	*new_lst(void *content);
 t_lst	*last_lst(t_lst **first_lst);
 void	add_lst(t_lst **first_lst, t_lst *new_lst);
+void	remove_lst(t_lst **lst);
+void	remove_all_lst(t_lst **first_lst);
 
 char	**split_line(char *s, char c, int *arr_len);
 char	*trim_line(char *s, char c);
 size_t	words_count(const char *s, char delimiter);
+char	**free_all(char **arr);
 
 #endif
