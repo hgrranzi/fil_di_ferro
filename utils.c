@@ -21,6 +21,25 @@ size_t	aka_strlen(const char *s)
 	return (i);
 }
 
+int	aka_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
+}
+
+void	aka_tolower_line(char *line)
+{
+	int	i;
+
+	i = 0;
+	while (line[i])
+	{
+		line[i] = aka_tolower(line[i]);
+		i++;
+	}
+}
+
 int	aka_strcmp(const char *s1, const char *s2)
 {
 	int	i;
@@ -98,9 +117,33 @@ char	*aka_strjoin(char const *s1, char const *s2)
 	return (new_str);
 }
 
-int	aka_atoi_base(char *line, int base)
+int	aka_atoi_base(char *line, int base, char *base_line)
 {
-	return (0);
+
+	long	nbr;
+	long	sign;
+	int		i;
+	char	*index;
+
+	nbr = 0;
+	sign = 1;
+	i = 0;
+	if ((line[i] == '-' || line[i] == '+') && (aka_strchr(base_line, line[i])))
+	{
+		if (line[i] == '-')
+			sign = -1;
+		i++;
+	}
+	index = aka_strchr(base_line, line[i]);
+	while (line[i] && index && nbr < MAX_INT)
+	{
+		nbr = nbr * base + (index - base_line);
+		i++;
+		index = aka_strchr(base_line, line[i]);
+	}
+	if (line[i] || nbr > ERR_ATOI)
+		return (ERR_ATOI);
+	return ((int)(nbr * sign));
 }
 
 void	display_error(int errnum)
