@@ -32,13 +32,15 @@ typedef struct s_image
 
 typedef struct s_data
 {
-	void	*mlx_p;
-	void	*win_p;
-	t_image	*image;
-	int		**map;
-	int		**colors;
-	int		map_width;
-	int		map_height;
+	void		*mlx_p;
+	void		*win_p;
+	t_image		*image;
+	int			**map;
+	int			**colors;
+	int			map_width;
+	int			map_height;
+	int			zoom;
+	t_vector	*point;
 }				t_data;
 
 void	check_args(int argc, char **argv, t_data *data);
