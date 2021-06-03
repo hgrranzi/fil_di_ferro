@@ -119,7 +119,6 @@ char	*aka_strjoin(char const *s1, char const *s2)
 
 int	aka_atoi_base(char *line, int base, char *base_line)
 {
-
 	long	nbr;
 	long	sign;
 	int		i;

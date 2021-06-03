@@ -32,7 +32,7 @@ t_lst	*last_lst(t_lst **first_lst)
 
 void	add_lst(t_lst **first_lst, t_lst *new_lst)
 {
-	t_lst *lst_p;
+	t_lst	*lst_p;
 
 	lst_p = last_lst(first_lst);
 	if (lst_p)
