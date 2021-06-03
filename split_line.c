@@ -64,19 +64,19 @@ size_t	words_count(const char *s, char delimiter)
 	return (res);
 }
 
-char	*trim_line(char *s, char const *set)
+char	*trim_line(char *s, char c)
 {
 	char	*trimmed_str;
 	size_t	start_trim;
 	size_t	finish_trim;
 
-	if (s == NULL || set == NULL)
+	if (s == NULL)
 		return (NULL);
 	start_trim = 0;
 	finish_trim = aka_strlen(s) - 1;
-	while (start_trim < finish_trim && aka_strchr(set, s[start_trim]))
+	while (start_trim < finish_trim && c == s[start_trim])
 		start_trim++;
-	while (finish_trim > start_trim && aka_strchr(set, s[finish_trim]))
+	while (finish_trim > start_trim && c == s[finish_trim])
 	{
 		s[finish_trim] = '\0';
 		finish_trim--;
@@ -87,23 +87,22 @@ char	*trim_line(char *s, char const *set)
 	return (trimmed_str);
 }
 
-char	**split_line(char *s, char c)
+char	**split_line(char *s, char c, int *arr_len)
 {
 	char	*new_str;
 	char	**arr;
 	size_t	i;
 	size_t	start;
-	size_t	arr_len;
 
 	i = 0;
 	start = 0;
 	arr = NULL;
-	new_str = trim_line(s, &c);
+	new_str = trim_line(s, c);
 	if (!new_str)
 		return (NULL);
-	arr_len = words_count(new_str, c);
-	arr = calloc(arr_len + 1, sizeof(char *)); // my own
-	while (arr && i < arr_len)
+	*arr_len = words_count(new_str, c);
+	arr = calloc(*arr_len + 1, sizeof(char *)); // my own
+	while (arr && i < *arr_len)
 	{
 		arr[i] = strdup_char(&new_str[start], c);
 		if (!arr)

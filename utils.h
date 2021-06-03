@@ -19,7 +19,9 @@
 # define MAX_INT 2147483647
 # define ERR_ATOI 1073741824
 # define BUFFER_SIZE 64
-# define VALID_CHARS "+-x, ABCDEFabcdef"
+# define HEX_CHARS "0123456789abcdef"
+# define OCT_CHARS "01234567"
+# define DEC_CHARS "0123456789"
 # define BLACK_COLOR 0
 # define WHITE_COLOR 16777215
 # define SUCCES 1
@@ -38,19 +40,21 @@ void	display_error(int errnum);
 
 int		aka_isdigit(char c);
 size_t	aka_strlen(const char *s);
+int		aka_tolower(int c);
+void	aka_tolower_line(char *line);
 int		aka_strcmp(const char *s1, const char *s2);
 int		take_line(int fd, char **line);
 char	*aka_strdup(const char *s);
 char	*aka_strchr(const char *s, int c);
 char	*aka_strjoin(char const *s1, char const *s2);
-int		aka_atoi_base(char *line, int base);
+int		aka_atoi_base(char *line, int base, char *base_line);
 
 t_lst	*new_lst(void *content);
 t_lst	*last_lst(t_lst **first_lst);
 void	add_lst(t_lst **first_lst, t_lst *new_lst);
 
-char	**split_line(char *s, char c);
-char	*trim_line(char *s, char const *set);
+char	**split_line(char *s, char c, int *arr_len);
+char	*trim_line(char *s, char c);
 size_t	words_count(const char *s, char delimiter);
 
 #endif

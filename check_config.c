@@ -13,12 +13,12 @@ int	get_nbr(char *point)
 	if (point[0] == '0')
 	{
 		if (point[1] == 'x' || point[1] == 'X')
-			nbr = aka_atoi_base(point[2], 16);
+			nbr = aka_atoi_base(&point[2], 16, HEX_CHARS);
 		else
-			nbr = aka_atoi_base(point[1], 8);
+			nbr = aka_atoi_base(&point[1], 8, OCT_CHARS);
 	}
 	else
-		nbr = aka_atoi_base(point, 10);
+		nbr = aka_atoi_base(point, 10, DEC_CHARS);
 	return (nbr);
 }
 
@@ -38,7 +38,7 @@ int	check_point(char *point, t_data *data, int map_i, int i)
 		data->colors[map_i][i] = WHITE_COLOR;
 	data->map[map_i][i] = get_nbr(point);
 	if (data->map[map_i][i] == ERR_ATOI || data->colors[map_i][i] == ERR_ATOI || data->colors[map_i][i] < BLACK_COLOR || data->colors[map_i][i] > WHITE_COLOR)
-		return(FAIL); // atoi должен проверять что после числа '\0'
+		return(FAIL);
 	return (SUCCES);
 }
 
@@ -48,9 +48,8 @@ int	get_points(char *line, t_data *data, int map_i)
 	int		i;
 
 	i = 0;
-	points = split_line(line, ' ');
-	if (!data->map_width)
-		data->map_width = words_count(points, ' ');
+	aka_tolower_line(line);
+	points = split_line(line, ' ', &data->map_width);
 	if (points)
 	{
 		data->map[map_i] = calloc(data->map_width + 1, sizeof(int));
@@ -63,8 +62,9 @@ int	get_points(char *line, t_data *data, int map_i)
 		}
 		if (points[i])
 			return (FAIL);
+		return (SUCCES);
 	}
-	return (SUCCES);
+	return (FAIL);
 }
 
 void	save_config(t_lst **first_lst, t_data *data)
@@ -83,12 +83,13 @@ void	save_config(t_lst **first_lst, t_data *data)
 			if (!(get_points(lst_p->content, data, map_i)))
 				break ;
 			lst_p = lst_p->next;
+			map_i++;
 		}
 	}
 	if (lst_p)
 	{
 		// remove lst
-		finish_it(errno, data);
+		finish_it(ERR_READ, data);
 	}
 	// remove lst
 
