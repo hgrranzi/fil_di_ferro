@@ -10,6 +10,7 @@ void	init_data(t_data *data)
 {
 	data->mlx_p = NULL;
 	data->win_p = NULL;
+	data->image = NULL;
 	data->map = NULL;
 	data->colors = NULL;
 	data->map_width = 0;

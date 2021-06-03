@@ -10,6 +10,8 @@
 # include "utils.h"
 # include "mlx/mlx.h"
 
+# define WIN_W 1280
+
 typedef struct s_vector
 {
 	int	x;
@@ -17,10 +19,22 @@ typedef struct s_vector
 	int	z;
 }				t_vector;
 
+typedef struct s_image
+{
+	void		*img;
+	char		*addr;
+	int			bpp;
+	int			line;
+	int			endian;
+	int			w;
+	int			h;
+}				t_image;
+
 typedef struct s_data
 {
 	void	*mlx_p;
 	void	*win_p;
+	t_image	*image;
 	int		**map;
 	int		**colors;
 	int		map_width;
@@ -28,6 +42,7 @@ typedef struct s_data
 }				t_data;
 
 void	check_args(int argc, char **argv, t_data *data);
+void	start_mlx(t_data *data);
 
 void	check_config(t_data *data, char *filename);
 void	save_config(t_lst **first_lst, t_data *data);
