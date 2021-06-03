@@ -29,13 +29,11 @@ void	start_mlx(t_data *data)
 
 int	main(int argc, char **argv)
 {
-	t_data		data;
-	t_image		image;
-	t_vector	point;
+	t_data	data;
+	t_image	image;
 
-	data.image = &image;
-	data.point = &point;
 	init_data(&data);
+	data.image = &image;
 	check_args(argc, argv, &data);
 	check_config(&data, argv[1]);
 	start_mlx(&data);
