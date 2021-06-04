@@ -21,4 +21,7 @@ typedef struct	s_intvector
 	int			y;
 }				t_intvector;
 
+t_vector	know_vector(t_vector from_v, t_vector to_v);
+t_vector	sum_vectors(t_vector v1, t_vector v2);
+
 #endif
