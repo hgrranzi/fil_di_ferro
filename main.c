@@ -24,7 +24,6 @@ void	start_mlx(t_data *data)
 		finish_it(errno, data);
 	data->image->addr = mlx_get_data_addr(data->image->img,
 		&data->image->bpp, &data->image->line, &data->image->endian);
-
 }
 
 int	main(int argc, char **argv)
