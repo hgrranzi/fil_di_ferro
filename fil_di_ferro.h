@@ -53,5 +53,6 @@ void		put_pxl(t_data *data, int x, int y, int color);
 void		draw_line(t_data *data, t_vector point1, t_vector point2);
 t_vector	get_step(t_vector point1, t_vector point2);
 int			positive(int n);
+void		draw_map(t_data *data);
 
 #endif

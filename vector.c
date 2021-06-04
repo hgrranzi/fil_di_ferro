@@ -23,3 +23,12 @@ t_vector		sum_vectors(t_vector v1, t_vector v2)
 	res_v.y = v1.y + v2.y;
 	return (res_v);
 }
+
+t_vector		scale_vector(t_vector v, float scale)
+{
+	t_vector	scaled_v;
+
+	scaled_v.x = v.x * scale;
+	scaled_v.y = v.y * scale;
+	return (scaled_v);
+}

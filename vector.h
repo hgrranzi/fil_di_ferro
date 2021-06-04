@@ -9,6 +9,8 @@
 
 # include <math.h>
 
+# define ANGLE 0.8
+
 typedef struct	s_vector
 {
 	float		x;
@@ -23,5 +25,6 @@ typedef struct	s_intvector
 
 t_vector	know_vector(t_vector from_v, t_vector to_v);
 t_vector	sum_vectors(t_vector v1, t_vector v2);
+t_vector	scale_vector(t_vector v, float scale);
 
 #endif
