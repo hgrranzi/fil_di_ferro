@@ -1,3 +1,6 @@
 [submodule "mlx"]
 	path = mlx
 	url = https://github.com/hgrranzi/mlx
+[submodule "minilibx"]
+	path = minilibx
+	url = https://github.com/hgrranzi/minilibx.git
