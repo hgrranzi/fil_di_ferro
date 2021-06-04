@@ -8,7 +8,6 @@
 # define UTILS_H
 
 # include <errno.h>
-# include <math.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>

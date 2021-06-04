@@ -8,16 +8,10 @@
 # define FIL_DI_FERRO_H
 
 # include "utils.h"
+# include "vector.h"
 # include "mlx/mlx.h"
 
 # define WIN_W 1280
-
-typedef struct s_vector
-{
-	int	x;
-	int	y;
-	int	z;
-}				t_vector;
 
 typedef struct s_image
 {
@@ -39,6 +33,8 @@ typedef struct s_data
 	int		**colors;
 	int		map_width;
 	int		map_height;
+	t_vector	*point;
+	int		zoom;
 }				t_data;
 
 void	check_args(int argc, char **argv, t_data *data);

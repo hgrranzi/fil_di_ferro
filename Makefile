@@ -12,11 +12,11 @@ OBJS =	$(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): fil_di_ferro.h utils.h $(OBJS)
+$(NAME): fil_di_ferro.h utils.h vector.h $(OBJS)
 	cd mlx && make
 	$(LINK) $(MLX) $(OBJS) mlx/libmlx.a -o $(NAME)
 
-%.o: %.c fil_di_ferro.h utils.h
+%.o: %.c fil_di_ferro.h utils.h vector.h
 	$(COMPILE) $< -o $@
 
 clean:

@@ -15,6 +15,10 @@ void	init_data(t_data *data)
 	data->colors = NULL;
 	data->map_width = 0;
 	data->map_height = 0;
+
+	data->point->x = 0;
+	data->point->y = 0;
+	data->zoom = 1;
 }
 
 void	free_arr(int **arr)
