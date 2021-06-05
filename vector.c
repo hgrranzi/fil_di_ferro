@@ -32,3 +32,12 @@ t_vector		scale_vector(t_vector v, float scale)
 	scaled_v.y = v.y * scale;
 	return (scaled_v);
 }
+
+t_vector		isometric_matrix(t_vector v, int z)
+{
+	t_vector	new_v;
+
+	new_v.x = (v.x - v.y) * cos(ANGLE);
+	new_v.y = (v.x + v.y) * sin(ANGLE) - z;
+	return (new_v);
+}
