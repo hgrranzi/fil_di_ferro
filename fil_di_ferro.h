@@ -33,6 +33,7 @@ typedef struct s_data
 	int			map_height;
 	t_vector	*point;
 	int			zoom;
+	int			color_flag;
 }				t_data;
 
 void		check_args(int argc, char **argv, t_data *data);
