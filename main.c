@@ -30,6 +30,11 @@ int	press_key(int key, t_data *data)
 {
 	if (key == 53)
 		finish_it(0, data);
+	if (key == 24)
+		data->zoom += ZOOM / 2;
+	else if (key == 27)
+		data->zoom -= ZOOM / 2;
+	return (0);
 }
 
 int	main(int argc, char **argv)
