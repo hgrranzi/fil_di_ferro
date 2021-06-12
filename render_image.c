@@ -33,6 +33,14 @@ t_vector	get_step(t_vector point1, t_vector point2)
 	return (step);
 }
 
+void	move_points(t_vector *v1, t_vector *v2)
+{
+	v1->x += OFFSET;
+	v1->y += OFFSET;
+	v2->x += OFFSET;
+	v2->y += OFFSET;
+}
+
 void	draw_line(t_data *data, t_vector point1, t_vector point2)
 {
 	t_vector	step;
@@ -45,6 +53,7 @@ void	draw_line(t_data *data, t_vector point1, t_vector point2)
 	point2 = scale_vector(point2, data->zoom);
 	point1 = isometric_matrix(point1);
 	point2 = isometric_matrix(point2);
+	move_points(&point1, &point2);
 	step = get_step(point1, point2);
 	while ((int)(point1.x - point2.x) || (int)(point1.y - point2.y))
 	{

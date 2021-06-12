@@ -19,6 +19,7 @@
 # define ERR_ATOI 1073741824
 # define BUFFER_SIZE 64
 # define ZOOM 32
+# define OFFSET 256
 # define HEX_CHARS "0123456789abcdef"
 # define OCT_CHARS "01234567"
 # define DEC_CHARS "0123456789"

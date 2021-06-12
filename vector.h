@@ -9,7 +9,7 @@
 
 # include <math.h>
 
-# define ANGLE 0.8
+# define ANGLE 0.52
 
 typedef struct	s_vector
 {
