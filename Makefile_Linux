@@ -1,25 +1,25 @@
 NAME = fil_di_ferro
 
-COMPILE = clang -c
+COMPILE = clang -Wall -Wextra -Werror
 
-LINK = clang -Wall -Wextra -Werror
+MLX = -Iminilibx-linux -Lminilibx-linux
 
-SRCS = main.c init_remove.c check_config.c utils.c take_line.c lst.c
+MLXX = -lmlx -lXext -lX11 ./minilibx-linux/libmlx.a -lm
 
-OBJS =	$(SRCS:.c=.o)
+SRCS = main.c init_remove.c check_config.c utils.c take_line.c lst.c split_line.c render_image.c vector.c
 
 all: $(NAME)
 
-$(NAME): fil_di_ferro.h utils.h $(OBJS)
+$(NAME): fil_di_ferro.h utils.h vector.h $(SRCS)
+	cd minilibx-linux && make
 	$(LINK) $(OBJS) -o $(NAME)
-
-%.o: %.c fil_di_ferro.h utils.h
-	$(COMPILE) $< -o $@
+	$(COMPILE) $(MLX) $(SRCS) $(MLXX) -o $(NAME)
 
 clean:
-	rm -f $(OBJS)
+	echo "Done"
 
 fclean: clean
+	cd minilibx-linux && make clean
 	rm -f $(NAME)
 
 re: fclean all
