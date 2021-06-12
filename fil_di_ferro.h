@@ -33,7 +33,9 @@ typedef struct s_data
 	int			map_height;
 	t_vector	*point;
 	int			zoom;
+	int			offset;
 	int			color_flag;
+	float		angle;
 }				t_data;
 
 void		check_args(int argc, char **argv, t_data *data);
@@ -54,6 +56,7 @@ int			render_image(t_data *data);
 void		put_pxl(t_data *data, int x, int y, int color);
 void		fill_background(t_data *data);
 void		draw_line(t_data *data, t_vector point1, t_vector point2);
+void		move_points(t_vector *v1, t_vector *v2, int offset);
 t_vector	get_step(t_vector point1, t_vector point2);
 void		draw_map(t_data *data);
 

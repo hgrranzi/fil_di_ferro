@@ -36,12 +36,12 @@ t_vector		scale_vector(t_vector v, float scale)
 	return (scaled_v);
 }
 
-t_vector		isometric_matrix(t_vector v)
+t_vector		isometric_matrix(t_vector v, float angle)
 {
 	t_vector	new_v;
 
-	new_v.x = (v.x - v.y) * cos(ANGLE);
-	new_v.y = (v.x + v.y) * sin(ANGLE) - v.z;
+	new_v.x = (v.x - v.y) * cos(angle);
+	new_v.y = (v.x + v.y) * sin(angle) - v.z;
 	new_v.z = v.z;
 	return (new_v);
 }

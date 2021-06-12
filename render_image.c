@@ -51,12 +51,12 @@ t_vector	get_step(t_vector point1, t_vector point2)
 	return (step);
 }
 
-void	move_points(t_vector *v1, t_vector *v2)
+void	move_points(t_vector *v1, t_vector *v2, int offset)
 {
-	v1->x += OFFSET;
-	v1->y += OFFSET;
-	v2->x += OFFSET;
-	v2->y += OFFSET;
+	v1->x += offset;
+	v1->y += offset;
+	v2->x += offset;
+	v2->y += offset;
 }
 
 void	draw_line(t_data *data, t_vector point1, t_vector point2)
@@ -72,9 +72,9 @@ void	draw_line(t_data *data, t_vector point1, t_vector point2)
 		color = data->colors[(int)point1.y][(int)point1.x];
 	point1 = scale_vector(point1, data->zoom);
 	point2 = scale_vector(point2, data->zoom);
-	point1 = isometric_matrix(point1);
-	point2 = isometric_matrix(point2);
-	move_points(&point1, &point2);
+	point1 = isometric_matrix(point1, data->angle);
+	point2 = isometric_matrix(point2, data->angle);
+	move_points(&point1, &point2, data->offset);
 	step = get_step(point1, point2);
 	while ((int)(point1.x - point2.x) || (int)(point1.y - point2.y))
 	{
