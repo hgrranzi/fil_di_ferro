@@ -43,6 +43,8 @@ void	draw_line(t_data *data, t_vector point1, t_vector point2)
 	color = data->colors[(int)point1.y][(int)point1.x];
 	point1 = scale_vector(point1, data->zoom);
 	point2 = scale_vector(point2, data->zoom);
+	point1 = isometric_matrix(point1);
+	point2 = isometric_matrix(point2);
 	step = get_step(point1, point2);
 	while ((int)(point1.x - point2.x) || (int)(point1.y - point2.y))
 	{
