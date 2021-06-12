@@ -89,6 +89,26 @@ char	*aka_strchr(const char *s, int c)
 	return (NULL);
 }
 
+void	*aka_calloc(size_t count, size_t size)
+{
+	unsigned char	*p;
+	size_t			i;
+	size_t			len;
+
+	len = count * size;
+	p = malloc(len);
+	i = 0;
+	if (p)
+	{
+		while (i < len)
+		{
+			p[i] = 0;
+			i++;
+		}
+	}
+	return ((void *)p);
+}
+
 char	*aka_strjoin(char const *s1, char const *s2)
 {
 	char	*new_str;

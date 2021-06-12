@@ -47,6 +47,7 @@ int		aka_strcmp(const char *s1, const char *s2);
 int		take_line(int fd, char **line);
 char	*aka_strdup(const char *s);
 char	*aka_strchr(const char *s, int c);
+void	*aka_calloc(size_t count, size_t size);
 char	*aka_strjoin(char const *s1, char const *s2);
 int		aka_atoi_base(char *line, int base, char *base_line);
 

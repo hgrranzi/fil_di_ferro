@@ -52,8 +52,8 @@ int	get_points(char *line, t_data *data, int map_i)
 	points = split_line(line, ' ', &data->map_width);
 	if (points)
 	{
-		data->map[map_i] = calloc(data->map_width + 1, sizeof(int));
-		data->colors[map_i] = calloc(data->map_width + 1, sizeof(int));
+		data->map[map_i] = aka_(data->map_width + 1, sizeof(int));
+		data->colors[map_i] = aka_calloc(data->map_width + 1, sizeof(int));
 		while (points[i])
 		{
 			if (!(check_point(points[i], data, map_i, i)))
@@ -74,8 +74,8 @@ void	save_config(t_lst **first_lst, t_data *data)
 	int		map_i;
 
 	lst_p = *first_lst;
-	data->map = calloc(data->map_height + 1, sizeof(int *)); // need my own calloc
-	data->colors = calloc(data->map_height + 1, sizeof(int *));
+	data->map = aka_calloc(data->map_height + 1, sizeof(int *));
+	data->colors = aka_calloc(data->map_height + 1, sizeof(int *));
 	if (data->map && data->colors)
 	{
 		map_i = 0;
