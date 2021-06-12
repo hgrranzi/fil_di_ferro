@@ -52,7 +52,7 @@ int	get_points(char *line, t_data *data, int map_i)
 	points = split_line(line, ' ', &data->map_width);
 	if (points)
 	{
-		data->map[map_i] = aka_(data->map_width + 1, sizeof(int));
+		data->map[map_i] = aka_calloc(data->map_width + 1, sizeof(int));
 		data->colors[map_i] = aka_calloc(data->map_width + 1, sizeof(int));
 		while (points[i])
 		{
