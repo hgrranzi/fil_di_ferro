@@ -26,6 +26,12 @@ void	start_mlx(t_data *data)
 		&data->image->bpp, &data->image->line, &data->image->endian);
 }
 
+int	press_key(int key, t_data *data)
+{
+	if (key == 53)
+		finish_it(0, data);
+}
+
 int	main(int argc, char **argv)
 {
 	t_data	data;
@@ -38,6 +44,7 @@ int	main(int argc, char **argv)
 	check_args(argc, argv, &data);
 	check_config(&data, argv[1]);
 	start_mlx(&data);
+	mlx_hook(data.win_p, 2, 1L << 0, press_key, &data);
 	mlx_loop_hook(data.mlx_p, render_image, &data);
 	mlx_loop(data.mlx_p);
 	return (0);

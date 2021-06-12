@@ -37,6 +37,7 @@ typedef struct s_data
 
 void		check_args(int argc, char **argv, t_data *data);
 void		start_mlx(t_data *data);
+int			press_key(int key, t_data *data);
 
 void		check_config(t_data *data, char *filename);
 void		save_config(t_lst **first_lst, t_data *data);
