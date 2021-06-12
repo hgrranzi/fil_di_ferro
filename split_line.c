@@ -100,7 +100,7 @@ char	**split_line(char *s, char c, int *arr_len)
 		return (NULL);
 	*arr_len = words_count(new_str, c);
 	arr = aka_calloc(*arr_len + 1, sizeof(char *));
-	while (arr && i < *arr_len)
+	while (arr && (int)i < *arr_len)
 	{
 		arr[i] = strdup_char(&new_str[start], c);
 		if (!arr)

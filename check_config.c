@@ -24,7 +24,6 @@ int	get_nbr(char *point)
 
 int	check_point(char *point, t_data *data, int map_i, int i)
 {
-	int		base;
 	char	*comma_p;
 
 	comma_p = aka_strchr(point, ',');
