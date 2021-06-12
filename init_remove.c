@@ -16,10 +16,10 @@ void	init_data(t_data *data)
 	data->map_width = 0;
 	data->map_height = 0;
 
-	data->point->x = 0;
-	data->point->y = 0;
-	data->point->z = 0;
-	data->zoom = ZOOM;
+	//data->point->x = 0;
+	//data->point->y = 0;
+	//data->point->z = 0;
+	data->zoom = ZOOM; // that should be calculated depending on the map size
 }
 
 void	free_arr(int **arr)
