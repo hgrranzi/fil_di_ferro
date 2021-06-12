@@ -46,14 +46,17 @@ int	get_points(char *line, t_data *data, int map_i)
 {
 	char	**points;
 	int		i;
+	int		current_width;
 
 	i = 0;
 	aka_tolower_line(line);
-	points = split_line(line, ' ', &data->map_width);
-	if (points)
+	points = split_line(line, ' ', &current_width);
+	if (!data->map_width)
+		data->map_width = current_width;
+	if (points && current_width == data->map_width)
 	{
-		data->map[map_i] = aka_calloc(data->map_width + 1, sizeof(int));
-		data->colors[map_i] = aka_calloc(data->map_width + 1, sizeof(int));
+		data->map[map_i] = aka_calloc(current_width + 1, sizeof(int));
+		data->colors[map_i] = aka_calloc(current_width + 1, sizeof(int));
 		while (points[i])
 		{
 			if (!(check_point(points[i], data, map_i, i)))
