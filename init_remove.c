@@ -19,7 +19,7 @@ void	init_data(t_data *data)
 	data->point->x = 0;
 	data->point->y = 0;
 	data->point->z = 0;
-	data->zoom = 8;
+	data->zoom = ZOOM;
 }
 
 void	free_arr(int **arr)
