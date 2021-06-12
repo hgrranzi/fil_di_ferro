@@ -62,13 +62,15 @@ void	draw_map(t_data *data)
 	step_x.y = 0;
 	step_y.x = 0;
 	step_y.y = 1;
-	while(point.y < data->map_height - 1)
+	while (point.y < data->map_height)
 	{
 		point.x = 0;
-		while (point.x < data->map_width - 1)
+		while (point.x < data->map_width)
 		{
-			draw_line(data, point, sum_vectors(point, step_x));
-			draw_line(data, point, sum_vectors(point, step_y));
+			if (point.x < data->map_width - 1)
+				draw_line(data, point, sum_vectors(point, step_x));
+			if (point.y < data->map_height - 1)
+				draw_line(data, point, sum_vectors(point, step_y));
 			point = sum_vectors(point, step_x);
 		}
 		point = sum_vectors(point, step_y);
