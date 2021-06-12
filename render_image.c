@@ -17,13 +17,6 @@ void	put_pxl(t_data *data, int x, int y, int color)
 	}
 }
 
-int	positive(int n)
-{
-	if (n < 0)
-		return ((-1) * n);
-	return (n);
-}
-
 t_vector	get_step(t_vector point1, t_vector point2)
 {
 	t_vector	step;
@@ -31,10 +24,10 @@ t_vector	get_step(t_vector point1, t_vector point2)
 
 	step.x = point2.x - point1.x;
 	step.y = point2.y - point1.y;
-	if (positive(step.x) > positive(step.y))
-		max_step = step.x;
+	if (fabs(step.x) > fabs(step.y))
+		max_step = fabs(step.x);
 	else
-		max_step = step.y;
+		max_step = fabs(step.y);
 	step.x = step.x / max_step;
 	step.y = step.y / max_step;
 	return (step);
