@@ -147,7 +147,7 @@ int	aka_atoi_base(char *line, int base, char *base_line)
 	nbr = 0;
 	sign = 1;
 	i = 0;
-	if ((line[i] == '-' || line[i] == '+') && (aka_strchr(base_line, line[i])))
+	if ((line[i] == '-' || line[i] == '+') && (aka_strchr(base_line, line[i + 1])))
 	{
 		if (line[i] == '-')
 			sign = -1;
