@@ -51,6 +51,7 @@ void		finish_it(int errnum, t_data *data);
 
 int			render_image(t_data *data);
 void		put_pxl(t_data *data, int x, int y, int color);
+void		fill_background(t_data *data);
 void		draw_line(t_data *data, t_vector point1, t_vector point2);
 t_vector	get_step(t_vector point1, t_vector point2);
 void		draw_map(t_data *data);

@@ -17,6 +17,24 @@ void	put_pxl(t_data *data, int x, int y, int color)
 	}
 }
 
+void	fill_background(t_data *data)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (y < WIN_W)
+	{
+		x = 0;
+		while (x < WIN_W)
+		{
+			put_pxl(data, x, y, BLACK_COLOR);
+			x++;
+		}
+		y++;
+	}
+}
+
 t_vector	get_step(t_vector point1, t_vector point2)
 {
 	t_vector	step;
@@ -90,6 +108,7 @@ void	draw_map(t_data *data)
 
 int	render_image(t_data *data)
 {
+	fill_background(data);
 	draw_map(data);
 	mlx_put_image_to_window(data->mlx_p, data->win_p, data->image->img, 0, 0);
 	return (0);
