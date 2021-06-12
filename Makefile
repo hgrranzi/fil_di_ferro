@@ -6,7 +6,8 @@ LINK = gcc -Wall -Wextra -Werror
 
 MLX = -I mlx -L mlx -lmlx -framework OpenGL -framework AppKit
 
-SRCS = main.c init_remove.c check_config.c utils.c take_line.c lst.c split_line.c render_image.c vector.c
+SRCS = main.c init_remove.c check_config.c utils.c take_line.c \
+		lst.c split_line.c render_image.c vector.c press_key_mac.c
 
 OBJS =	$(SRCS:.c=.o)
 
