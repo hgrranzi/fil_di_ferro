@@ -15,7 +15,12 @@ void	check_args(int argc, char **argv, t_data *data)
 
 void	start_mlx(t_data *data)
 {
+	int	screen_width;
+	int	screen_height;
+
 	data->mlx_p = mlx_init();
+	mlx_get_screen_size(&screen_width, &screen_height);
+	//printf("%d %d", screen_width, screen_height);
 	data->win_p = mlx_new_window(data->mlx_p, WIN_W, WIN_W, "magic");
 	if (!data->win_p)
 		finish_it(errno, data);
@@ -31,12 +36,12 @@ int	main(int argc, char **argv)
 	t_data	data;
 	t_image	image;
 	t_vector	point;
-
 	data.point = &point;
 	init_data(&data);
 	data.image = &image;
 	check_args(argc, argv, &data);
 	check_config(&data, argv[1]);
+	//printf("width = %d height = %d", data.map_width, data.map_height);
 	start_mlx(&data);
 	mlx_hook(data.win_p, 2, 1L << 0, press_key, &data);
 	mlx_loop_hook(data.mlx_p, render_image, &data);

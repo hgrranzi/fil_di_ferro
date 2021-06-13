@@ -26,6 +26,8 @@ typedef struct s_data
 {
 	void		*mlx_p;
 	void		*win_p;
+	int			win_width;
+	int			win_height;
 	t_image		*image;
 	int			**map;
 	int			**colors;
