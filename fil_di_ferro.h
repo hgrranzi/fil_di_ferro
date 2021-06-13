@@ -13,8 +13,6 @@
 //# include "mlx/mlx.h" // for mac
 # include "minilibx-linux/mlx.h" // for linux
 
-# define WIN_W 1280
-
 typedef struct s_image
 {
 	void		*img;
@@ -44,6 +42,7 @@ typedef struct s_data
 
 void		check_args(int argc, char **argv, t_data *data);
 void		start_mlx(t_data *data);
+void		count_win_config(t_data *data, int screen_width, int screen_height);
 int			press_key(int key, t_data *data);
 
 void		check_config(t_data *data, char *filename);

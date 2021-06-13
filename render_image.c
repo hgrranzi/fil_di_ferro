@@ -23,10 +23,10 @@ void	fill_background(t_data *data)
 	int	y;
 
 	y = 0;
-	while (y < WIN_W)
+	while (y < data->win_height)
 	{
 		x = 0;
-		while (x < WIN_W)
+		while (x < data->win_width)
 		{
 			put_pxl(data, x, y, BLACK_COLOR);
 			x++;
