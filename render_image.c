@@ -70,10 +70,10 @@ void	draw_line(t_data *data, t_vector point1, t_vector point2)
 		color = 0xFF0000 / (point1.z + 1); // need a function to manage the color
 	else
 		color = data->colors[(int)point1.y][(int)point1.x];
-	point1 = scale_vector(point1, data->zoom);
-	point2 = scale_vector(point2, data->zoom);
 	point1 = isometric_matrix(point1, data->angle);
 	point2 = isometric_matrix(point2, data->angle);
+	point1 = scale_vector(point1, data->zoom);
+	point2 = scale_vector(point2, data->zoom);
 	move_points(&point1, &point2, data->offset);
 	step = get_step(point1, point2);
 	while ((int)(point1.x - point2.x) || (int)(point1.y - point2.y))
