@@ -19,7 +19,8 @@ void	start_mlx(t_data *data)
 	int	screen_height;
 
 	data->mlx_p = mlx_init();
-	mlx_get_screen_size(&screen_width, &screen_height);
+	//mlx_get_screen_size(&screen_width, &screen_height); for mac
+	mlx_get_screen_size(data->mlx_p, &screen_width, &screen_height); // for linux
 	//printf("%d %d", screen_width, screen_height);
 	data->win_p = mlx_new_window(data->mlx_p, WIN_W, WIN_W, "magic");
 	if (!data->win_p)

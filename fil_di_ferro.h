@@ -9,7 +9,9 @@
 
 # include "utils.h"
 # include "vector.h"
-# include "mlx/mlx.h"
+//need to work with makefile for include preperly mlx.h
+//# include "mlx/mlx.h" // for mac
+# include "minilibx-linux/mlx.h" // for linux
 
 # define WIN_W 1280
 
