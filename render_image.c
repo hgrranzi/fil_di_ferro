@@ -10,7 +10,7 @@ void	put_pxl(t_data *data, int x, int y, int color)
 {
 	char	*dst;
 
-	if (x >= 0 && y >= 0)
+	if (x >= 0 && y >= 0 && x < data->win_width && y < data->win_height)
 	{
 		dst = data->image->addr + (y * data->image->line + x * (data->image->bpp / 8));
 		*(unsigned int *)dst = color;
