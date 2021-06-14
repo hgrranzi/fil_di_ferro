@@ -14,6 +14,9 @@
 //# include "minilibx-linux/mlx.h" // for linux
 
 # define BIG_MAP 500
+# define HIGH_COLOR 16568903
+# define DEEP_COLOR 6053119
+
 
 typedef struct s_image
 {
@@ -57,9 +60,11 @@ void		init_data(t_data *data);
 void		remove_data(t_data *data);
 void		finish_it(int errnum, t_data *data);
 
-int			render_image(t_data *data);
 void		put_pxl(t_data *data, int x, int y, int color);
 void		fill_background(t_data *data);
+int			get_color(int z);
+
+int			render_image(t_data *data);
 void		draw_line(t_data *data, t_vector point1, t_vector point2);
 void		move_points(t_vector *v1, t_vector *v2, int offset);
 t_vector	get_step(t_vector point1, t_vector point2);

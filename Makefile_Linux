@@ -6,7 +6,7 @@ MLX = -Iminilibx-linux -Lminilibx-linux
 
 MLXX = -lmlx -lXext -lX11 ./minilibx-linux/libmlx.a -lm
 
-SRCS = main.c init_remove.c check_config.c utils.c take_line.c \
+SRCS = main.c init_remove.c check_config.c utils.c take_line.c draw.c\
 		lst.c split_line.c render_image.c vector.c press_key_linux.c
 
 all: $(NAME)

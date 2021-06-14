@@ -6,35 +6,6 @@
 
 #include "fil_di_ferro.h"
 
-void	put_pxl(t_data *data, int x, int y, int color)
-{
-	char	*dst;
-
-	if (x >= 0 && y >= 0 && x < data->win_width && y < data->win_height)
-	{
-		dst = data->image->addr + (y * data->image->line + x * (data->image->bpp / 8));
-		*(unsigned int *)dst = color;
-	}
-}
-
-void	fill_background(t_data *data)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	while (y < data->win_height)
-	{
-		x = 0;
-		while (x < data->win_width)
-		{
-			put_pxl(data, x, y, BLACK_COLOR);
-			x++;
-		}
-		y++;
-	}
-}
-
 t_vector	get_step(t_vector point1, t_vector point2)
 {
 	t_vector	step;
@@ -67,16 +38,16 @@ void	draw_line(t_data *data, t_vector point1, t_vector point2)
 	point1.z = data->map[(int)point1.y][(int)point1.x];
 	point2.z = data->map[(int)point2.y][(int)point2.x];
 	if (data->color_flag)
-		color = 0xFF0000 / (point1.z + 1); // need a function to manage the color
+		color = get_color(point1.z);
 	else
 		color = data->colors[(int)point1.y][(int)point1.x];
-	point1 = isometric_matrix(point1, data->angle);
-	point2 = isometric_matrix(point2, data->angle);
 	point1 = scale_vector(point1, data->zoom);
 	point2 = scale_vector(point2, data->zoom);
+	point1 = isometric_matrix(point1, data->angle);
+	point2 = isometric_matrix(point2, data->angle);
 	move_points(&point1, &point2, data->offset);
 	step = get_step(point1, point2);
-	while ((int)(point1.x - point2.x) || (int)(point1.y - point2.y))
+	while ((int)(point2.x - point1.x) || (int)(point2.y - point1.y))
 	{
 		put_pxl(data, (int)point1.x, (int)point1.y, color);
 		point1 = sum_vectors(point1, step);
