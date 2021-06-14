@@ -15,11 +15,11 @@ void	check_args(int argc, char **argv, t_data *data)
 
 void	count_win_config(t_data *data, int screen_width, int screen_height)
 {
-	if (data->map_width > 500) // define it
+	if (data->map_width > BIG_MAP) // define it
 		data->win_width = screen_width;
 	else
 		data->win_width = screen_width * 2 / 3;
-	if (data->map_height > 500)
+	if (data->map_height > BIG_MAP)
 		data->win_height = screen_height;
 	else
 		data->win_height = screen_height * 2 / 3;
@@ -31,8 +31,8 @@ void	start_mlx(t_data *data)
 	int	screen_height;
 
 	data->mlx_p = mlx_init();
-	//mlx_get_screen_size(&screen_width, &screen_height); for mac
-	mlx_get_screen_size(data->mlx_p, &screen_width, &screen_height); // for linux
+	mlx_get_screen_size(&screen_width, &screen_height); // for mac
+	//mlx_get_screen_size(data->mlx_p, &screen_width, &screen_height); // for linux
 	count_win_config(data, screen_width, screen_height);
 	//printf("%d %d", screen_width, screen_height);
 	data->win_p = mlx_new_window(data->mlx_p, data->win_width, data->win_height, "magic");

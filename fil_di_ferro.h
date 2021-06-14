@@ -10,8 +10,10 @@
 # include "utils.h"
 # include "vector.h"
 //need to work with makefile for include preperly mlx.h
-//# include "mlx/mlx.h" // for mac
-# include "minilibx-linux/mlx.h" // for linux
+# include "mlx/mlx.h" // for mac
+//# include "minilibx-linux/mlx.h" // for linux
+
+# define BIG_MAP 500
 
 typedef struct s_image
 {
