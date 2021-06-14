@@ -32,7 +32,7 @@ t_vector		scale_vector(t_vector v, float scale)
 
 	scaled_v.x = v.x * scale;
 	scaled_v.y = v.y * scale;
-	scaled_v.z = v.z;
+	scaled_v.z = v.z * scale;
 	return (scaled_v);
 }
 
