@@ -22,7 +22,6 @@ t_vector	get_step(int count_step, t_vector step)
 {
 	t_vector	final_step;
 
-
 	final_step.x = step.x / count_step;
 	final_step.y = step.y / count_step;
 	return (final_step);
@@ -40,14 +39,22 @@ void	draw_line(t_data *data, t_vector point1, t_vector point2)
 {
 	t_vector	step;
 	int			count_step;
+	int			current_step;
 	int			color;
+	int			color2;
 
 	point1.z = data->map[(int)point1.y][(int)point1.x];
 	point2.z = data->map[(int)point2.y][(int)point2.x];
 	if (data->color_flag)
+	{
 		color = get_color(point1.z);
+		color2 = get_color(point2.z);
+	}
 	else
+	{
 		color = data->colors[(int)point1.y][(int)point1.x];
+		color2 = data->colors[(int)point2.y][(int)point2.x];
+	}
 	point1 = scale_vector(point1, data->zoom);
 	point2 = scale_vector(point2, data->zoom);
 	point1 = isometric_matrix(point1, data->angle);
@@ -56,7 +63,8 @@ void	draw_line(t_data *data, t_vector point1, t_vector point2)
 	step = know_vector(point1, point2);
 	count_step = max_step(step);
 	step = get_step(count_step, step);
-	while ((int)(point2.x - point1.x) || (int)(point2.y - point1.y))
+	current_step = 0;
+	while (current_step++ < count_step)
 	{
 		put_pxl(data, (int)point1.x, (int)point1.y, color);
 		point1 = sum_vectors(point1, step);
