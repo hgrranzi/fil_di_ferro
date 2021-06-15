@@ -6,20 +6,26 @@
 
 #include "fil_di_ferro.h"
 
-t_vector	get_step(t_vector point1, t_vector point2)
+int	max_step(t_vector v)
 {
 	t_vector	step;
-	int		max_step;
 
-	step.x = point2.x - point1.x;
-	step.y = point2.y - point1.y;
-	if (fabs(step.x) > fabs(step.y))
-		max_step = fabs(step.x);
+	step.x = fabs(v.x);
+	step.y = fabs(v.y);
+	if (step.x > step.y)
+		return (step.x);
 	else
-		max_step = fabs(step.y);
-	step.x = step.x / max_step;
-	step.y = step.y / max_step;
-	return (step);
+		return (step.y);
+}
+
+t_vector	get_step(int count_step, t_vector step)
+{
+	t_vector	final_step;
+
+
+	final_step.x = step.x / count_step;
+	final_step.y = step.y / count_step;
+	return (final_step);
 }
 
 void	move_points(t_vector *v1, t_vector *v2, int offset)
@@ -33,6 +39,7 @@ void	move_points(t_vector *v1, t_vector *v2, int offset)
 void	draw_line(t_data *data, t_vector point1, t_vector point2)
 {
 	t_vector	step;
+	int			count_step;
 	int			color;
 
 	point1.z = data->map[(int)point1.y][(int)point1.x];
@@ -46,7 +53,9 @@ void	draw_line(t_data *data, t_vector point1, t_vector point2)
 	point1 = isometric_matrix(point1, data->angle);
 	point2 = isometric_matrix(point2, data->angle);
 	move_points(&point1, &point2, data->offset);
-	step = get_step(point1, point2);
+	step = know_vector(point1, point2);
+	count_step = max_step(step);
+	step = get_step(count_step, step);
 	while ((int)(point2.x - point1.x) || (int)(point2.y - point1.y))
 	{
 		put_pxl(data, (int)point1.x, (int)point1.y, color);

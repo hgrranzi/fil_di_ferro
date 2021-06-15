@@ -67,7 +67,8 @@ int			get_color(int z);
 int			render_image(t_data *data);
 void		draw_line(t_data *data, t_vector point1, t_vector point2);
 void		move_points(t_vector *v1, t_vector *v2, int offset);
-t_vector	get_step(t_vector point1, t_vector point2);
+int			max_step(t_vector v);
+t_vector	get_step(int count_step, t_vector step);
 void		draw_map(t_data *data);
 
 #endif
