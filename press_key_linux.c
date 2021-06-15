@@ -11,9 +11,9 @@ int	press_key(int key, t_data *data)
 	if (key == 65307)
 		finish_it(0, data);
 	if (key == 61)
-		data->zoom += ZOOM / 4; // need a function for zoom and offset change
+		data->zoom += ZOOM / 10; // need a function for zoom and offset change
 	else if (key == 45)
-		data->zoom -= ZOOM / 4; // need a function for zoom and offset change
+		data->zoom -= ZOOM / 10; // need a function for zoom and offset change
 	else if (key == 48)
 		data->color_flag = (!data->color_flag);
 	else if (key == 65362)

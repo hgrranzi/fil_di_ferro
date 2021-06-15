@@ -18,11 +18,11 @@ void	count_win_config(t_data *data, int screen_width, int screen_height)
 	if (data->map_width > BIG_MAP) // define it
 		data->win_width = screen_width;
 	else
-		data->win_width = screen_width * 2 / 3;
+		data->win_width = screen_width * 3 / 4;
 	if (data->map_height > BIG_MAP)
 		data->win_height = screen_height;
 	else
-		data->win_height = screen_height * 2 / 3;
+		data->win_height = screen_height * 3 / 4;
 }
 
 void	start_mlx(t_data *data)
