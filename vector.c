@@ -6,7 +6,7 @@
 
 #include "vector.h"
 
-t_vector		know_vector(t_vector from_v, t_vector to_v)
+t_vector	know_vector(t_vector from_v, t_vector to_v)
 {
 	t_vector	v;
 
@@ -16,7 +16,7 @@ t_vector		know_vector(t_vector from_v, t_vector to_v)
 	return (v);
 }
 
-t_vector		sum_vectors(t_vector v1, t_vector v2)
+t_vector	sum_vectors(t_vector v1, t_vector v2)
 {
 	t_vector	res_v;
 
@@ -26,7 +26,7 @@ t_vector		sum_vectors(t_vector v1, t_vector v2)
 	return (res_v);
 }
 
-t_vector		scale_vector(t_vector v, float scale, int diviser)
+t_vector	scale_vector(t_vector v, float scale, int diviser)
 {
 	t_vector	scaled_v;
 
@@ -36,7 +36,7 @@ t_vector		scale_vector(t_vector v, float scale, int diviser)
 	return (scaled_v);
 }
 
-t_vector		isometric_matrix(t_vector v, float angle)
+t_vector	isometric_matrix(t_vector v, float angle)
 {
 	t_vector	new_v;
 

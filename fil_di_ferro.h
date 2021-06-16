@@ -13,12 +13,6 @@
 # include "mlx/mlx.h" // for mac
 //# include "minilibx-linux/mlx.h" // for linux
 
-# define WIN_SCALE 3 / 4
-# define ZOOM_DIVIZER 64
-# define HIGH_COLOR 16568903
-# define DEEP_COLOR 6053119
-
-
 typedef struct s_image
 {
 	void		*img;

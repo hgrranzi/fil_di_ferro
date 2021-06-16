@@ -54,9 +54,9 @@ int	get_color(int z)
 	b = color & 0x0000FF;
 	while (z > 0)
 	{
-		r = (int)((float)r / 1.25);
-		g = (int)((float)g / 1.25);
-		b = (int)((float)b / 1.25);
+		r = (int)((float)r / COLOR_DIVIZER);
+		g = (int)((float)g / COLOR_DIVIZER);
+		b = (int)((float)b / COLOR_DIVIZER);
 		z >>= 1;
 	}
 	color = (r << 16) + (g << 8) + b;
@@ -71,8 +71,8 @@ int	get_color_step(int color, int color2, int count_step)
 	int	b;
 
 	r = (int)((float)(((color2 >> 16) - (color >> 16))) / count_step);
-	g = (int)((float)(((color2 >> 8 & 0x00FF) - (color >> 8 & 0x00FF))) / count_step);
-	b = (int)((float)(((color2 & 0x0000FF) - (color & 0x0000FF))) / count_step);
+	g = (int)((float)(((color2 >> 8 & 255) - (color >> 8 & 255))) / count_step);
+	b = (int)((float)(((color2 & 255) - (color & 255))) / count_step);
 	color_step = (r << 16) + (g << 8) + b;
 	return (color_step);
 }
@@ -85,8 +85,8 @@ int	iterate_color(int color, int step)
 	int			b;
 
 	r = (color >> 16) + (step >> 16);
-	g = (color >> 8 & 0x00FF) + (step >> 8 & 0x00FF);
-	b = (color & 0x0000FF) + (step & 0x0000FF);
+	g = (color >> 8 & 255) + (step >> 8 & 255);
+	b = (color & 255) + (step & 255);
 	new_color = (r << 16) + (g << 8) + b;
 	return (new_color);
 }

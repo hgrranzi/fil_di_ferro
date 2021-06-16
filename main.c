@@ -21,7 +21,7 @@ int		count_zoom(int map_width, int map_height)
 		max_len = map_width;
 	else
 		max_len = map_height;
-	return (2000 / max_len); // define
+	return (ZOOM_MAX / max_len);
 }
 
 void	count_win_config(t_data *data, int screen_width, int screen_height)

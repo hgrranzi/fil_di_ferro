@@ -11,24 +11,32 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
-# include <stdio.h>
-
 # include <string.h>
 
 # define MAX_INT 2147483647
 # define ERR_ATOI 1073741824
 # define BUFFER_SIZE 64
-# define OFFSET 256
 # define HEX_CHARS "0123456789abcdef"
 # define OCT_CHARS "01234567"
 # define DEC_CHARS "0123456789"
 # define BLACK_COLOR 0
 # define WHITE_COLOR 16777215
+# define HIGH_COLOR 16568903
+# define DEEP_COLOR 6053119
+# define COLOR_DIVIZER 1.2
 # define SUCCES 1
 # define FAIL 0
 # define ERR_ARGS 222
 # define ERR_READ 223
 # define ERR_MAP 224
+# define WIN_SCALE 3 / 4
+# define ZOOM_MAX 2000
+# define ZOOM_DIVIZER 64
+# define STEP_OFFSET 10
+# define ISO_ANGLE 0.463734
+# define ISO_MAX_ANGLE 0.785398
+# define ROT_ANGLE 0
+# define STEP_ANGLE 0.05
 
 typedef struct		s_lst
 {
