@@ -39,7 +39,7 @@
 # define ROT_ANGLE 0
 # define STEP_ANGLE 0.05
 
-typedef struct		s_lst
+typedef struct s_lst
 {
 	void			*content;
 	struct s_lst	*next;

@@ -8,12 +8,11 @@
 
 void	check_args(int argc, char **argv, t_data *data)
 {
-	if (argc != 2 || aka_strlen(argv[1]) < 5
-	|| aka_strcmp(&argv[1][aka_strlen(argv[1]) - 4], ".fdf"))
+	if (argc != 2 || aka_strlen(argv[1]) < 5 || aka_strcmp(&argv[1][aka_strlen(argv[1]) - 4], ".fdf"))
 		finish_it(ERR_ARGS, data);
 }
 
-int		count_zoom(int map_width, int map_height)
+int	count_zoom(int map_width, int map_height)
 {
 	int	max_len;
 
@@ -52,14 +51,13 @@ void	start_mlx(t_data *data)
 	data->image->img = mlx_new_image(data->mlx_p, data->win_width, data->win_height);
 	if (!data->image->img)
 		finish_it(errno, data);
-	data->image->addr = mlx_get_data_addr(data->image->img,
-		&data->image->bpp, &data->image->line, &data->image->endian);
+	data->image->addr = mlx_get_data_addr(data->image->img, &data->image->bpp, &data->image->line, &data->image->endian);
 }
 
 int	main(int argc, char **argv)
 {
-	t_data	data;
-	t_image	image;
+	t_data		data;
+	t_image		image;
 	t_vector	point;
 
 	init_data(&data);

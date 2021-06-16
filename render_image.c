@@ -35,7 +35,7 @@ void	move_points(t_vector *v1, t_vector *v2, t_intvector offset)
 	v2->y += offset.y;
 }
 
-int		outside(t_vector point1, t_vector point2, int win_width, int win_height)
+int	outside(t_vector point1, t_vector point2, int win_width, int win_height)
 {
 	if (point1.x < 0 && point2.x < 0 && point1.y < 0 && point2.y < 0)
 		return (1);
