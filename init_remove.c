@@ -20,7 +20,8 @@ void	init_data(t_data *data)
 	//data->point->y = 0;
 	//data->point->z = 0;
 	data->color_flag = 0;
-	data->offset = OFFSET;
+	data->offset.x = OFFSET;
+	data->offset.y = OFFSET;
 	data->angle = ANGLE;
 	data->zoom = ZOOM; // that should be calculated depending on the map size
 }

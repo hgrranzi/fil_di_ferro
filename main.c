@@ -50,7 +50,7 @@ int	main(int argc, char **argv)
 	t_data	data;
 	t_image	image;
 	t_vector	point;
-	data.point = &point;
+
 	init_data(&data);
 	data.image = &image;
 	check_args(argc, argv, &data);

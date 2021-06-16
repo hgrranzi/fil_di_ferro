@@ -27,12 +27,12 @@ t_vector	get_step(int count_step, t_vector step)
 	return (final_step);
 }
 
-void	move_points(t_vector *v1, t_vector *v2, int offset)
+void	move_points(t_vector *v1, t_vector *v2, t_intvector offset)
 {
-	v1->x += offset;
-	v1->y += offset;
-	v2->x += offset;
-	v2->y += offset;
+	v1->x += offset.x;
+	v1->y += offset.y;
+	v2->x += offset.x;
+	v2->y += offset.y;
 }
 
 void	draw_line(t_data *data, t_vector point1, t_vector point2)

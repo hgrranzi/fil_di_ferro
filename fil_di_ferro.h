@@ -38,9 +38,8 @@ typedef struct s_data
 	int			**colors;
 	int			map_width;
 	int			map_height;
-	t_vector	*point;
 	int			zoom;
-	int			offset;
+	t_intvector	offset;
 	int			color_flag;
 	float		angle;
 }				t_data;
@@ -69,7 +68,7 @@ int			iterate_color(int color, int step);
 
 int			render_image(t_data *data);
 void		draw_line(t_data *data, t_vector point1, t_vector point2);
-void		move_points(t_vector *v1, t_vector *v2, int offset);
+void		move_points(t_vector *v1, t_vector *v2, t_intvector offset);
 int			max_step(t_vector v);
 t_vector	get_step(int count_step, t_vector step);
 void		draw_map(t_data *data);
