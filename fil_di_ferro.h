@@ -64,6 +64,8 @@ void		finish_it(int errnum, t_data *data);
 void		put_pxl(t_data *data, int x, int y, int color);
 void		fill_background(t_data *data);
 int			get_color(int z);
+int			get_color_step(int color, int color2, int count_step);
+int			iterate_color(int color, int step);
 
 int			render_image(t_data *data);
 void		draw_line(t_data *data, t_vector point1, t_vector point2);

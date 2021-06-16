@@ -27,34 +27,6 @@ t_vector	get_step(int count_step, t_vector step)
 	return (final_step);
 }
 
-int	get_color_step(int color, int color2, int count_step)
-{
-	int	color_step;
-	int	r;
-	int	g;
-	int	b;
-
-	r = (int)((float)(((color2 >> 16) - (color >> 16))) / count_step);
-	g = (int)((float)(((color2 >> 8 & 0x00FF) - (color >> 8 & 0x00FF))) / count_step);
-	b = (int)((float)(((color2 & 0x0000FF) - (color & 0x0000FF))) / count_step);
-	color_step = (r << 16) + (g << 8) + b;
-	return (color_step);
-}
-
-int	iterate_color(int color, int step)
-{
-	int			new_color;
-	int			r;
-	int			g;
-	int			b;
-
-	r = (color >> 16) + (step >> 16);
-	g = (color >> 8 & 0x00FF) + (step >> 8 & 0x00FF);
-	b = (color & 0x0000FF) + (step & 0x0000FF);
-	new_color = (r << 16) + (g << 8) + b;
-	return (new_color);
-}
-
 void	move_points(t_vector *v1, t_vector *v2, int offset)
 {
 	v1->x += offset;
@@ -67,7 +39,6 @@ void	draw_line(t_data *data, t_vector point1, t_vector point2)
 {
 	t_vector	step;
 	int			count_step;
-	int			current_step;
 	int			color;
 	int			color2;
 	int			color_step;
@@ -93,12 +64,12 @@ void	draw_line(t_data *data, t_vector point1, t_vector point2)
 	count_step = max_step(step);
 	step = get_step(count_step, step);
 	color_step = get_color_step(color, color2, count_step);
-	current_step = 0;
-	while (current_step++ < count_step)
+	while (count_step)
 	{
 		put_pxl(data, (int)point1.x, (int)point1.y, color);
 		point1 = sum_vectors(point1, step);
 		color = iterate_color(color, color_step);
+		count_step--;
 	}
 }
 

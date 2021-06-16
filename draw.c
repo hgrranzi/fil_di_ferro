@@ -37,17 +37,17 @@ void	fill_background(t_data *data)
 
 int	get_color(int z)
 {
-	int		color;
-	int			r;
-	int			g;
-	int			b;
+	int	color;
+	int	r;
+	int	g;
+	int	b;
 
 	if (z == 0)
 		return (WHITE_COLOR);
 	if (z > 0)
-		color = HIGH_COLOR; // define
+		color = HIGH_COLOR;
 	else
-		color = DEEP_COLOR; // define
+		color = DEEP_COLOR;
 	z = abs(z);
 	r = color >> 16;
 	g = color >> 8 & 0x00FF;
@@ -61,4 +61,32 @@ int	get_color(int z)
 	}
 	color = (r << 16) + (g << 8) + b;
 	return (color);
+}
+
+int	get_color_step(int color, int color2, int count_step)
+{
+	int	color_step;
+	int	r;
+	int	g;
+	int	b;
+
+	r = (int)((float)(((color2 >> 16) - (color >> 16))) / count_step);
+	g = (int)((float)(((color2 >> 8 & 0x00FF) - (color >> 8 & 0x00FF))) / count_step);
+	b = (int)((float)(((color2 & 0x0000FF) - (color & 0x0000FF))) / count_step);
+	color_step = (r << 16) + (g << 8) + b;
+	return (color_step);
+}
+
+int	iterate_color(int color, int step)
+{
+	int			new_color;
+	int			r;
+	int			g;
+	int			b;
+
+	r = (color >> 16) + (step >> 16);
+	g = (color >> 8 & 0x00FF) + (step >> 8 & 0x00FF);
+	b = (color & 0x0000FF) + (step & 0x0000FF);
+	new_color = (r << 16) + (g << 8) + b;
+	return (new_color);
 }
