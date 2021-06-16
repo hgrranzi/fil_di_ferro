@@ -67,6 +67,7 @@ int			get_color_step(int color, int color2, int count_step);
 int			iterate_color(int color, int step);
 
 int			render_image(t_data *data);
+int			outside(t_vector point1, t_vector point2, int win_width, int win_height);
 void		draw_line(t_data *data, t_vector point1, t_vector point2);
 void		move_points(t_vector *v1, t_vector *v2, t_intvector offset);
 int			max_step(t_vector v);

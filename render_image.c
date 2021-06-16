@@ -35,6 +35,15 @@ void	move_points(t_vector *v1, t_vector *v2, t_intvector offset)
 	v2->y += offset.y;
 }
 
+int		outside(t_vector point1, t_vector point2, int win_width, int win_height)
+{
+	if (point1.x < 0 && point2.x < 0 && point1.y < 0 && point2.y < 0)
+		return (1);
+	if (point1.x >= win_width && point2.x >= win_width && point1.y >= win_height && point2.y >= win_height)
+		return (1);
+	return (0);
+}
+
 void	draw_line(t_data *data, t_vector point1, t_vector point2)
 {
 	t_vector	step;
@@ -64,12 +73,15 @@ void	draw_line(t_data *data, t_vector point1, t_vector point2)
 	count_step = max_step(step);
 	step = get_step(count_step, step);
 	color_step = get_color_step(color, color2, count_step);
-	while (count_step)
+	if (!outside(point1, point2, data->win_width, data->win_height))
 	{
-		put_pxl(data, (int)point1.x, (int)point1.y, color);
-		point1 = sum_vectors(point1, step);
-		color = iterate_color(color, color_step);
-		count_step--;
+		while (count_step)
+		{
+			put_pxl(data, (int)point1.x, (int)point1.y, color);
+			point1 = sum_vectors(point1, step);
+			color = iterate_color(color, color_step);
+			count_step--;
+		}
 	}
 }
 
