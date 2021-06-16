@@ -10,7 +10,7 @@ int	press_key(int key, t_data *data)
 {
 	if (key == 53)
 		finish_it(0, data);
-	if (key == 24)
+	else if (key == 24)
 		data->zoom += ZOOM / 10; // need a function for zoom and offset change
 	else if (key == 27)
 		data->zoom -= ZOOM / 10; // need a function for zoom and offset change
@@ -25,5 +25,11 @@ int	press_key(int key, t_data *data)
 	else if (key == 123)
 		data->offset -= 16;
 	//printf("%d\n", key);
+	return (0);
+}
+
+int	krestik(int key, t_data *data)
+{
+	exit(0); // check free in finish_it
 	return (0);
 }

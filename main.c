@@ -57,6 +57,7 @@ int	main(int argc, char **argv)
 	check_config(&data, argv[1]);
 	//printf("width = %d height = %d", data.map_width, data.map_height);
 	start_mlx(&data);
+	mlx_hook(data.win_p, 17, 1L << 0, krestik, &data);
 	mlx_hook(data.win_p, 2, 1L << 0, press_key, &data);
 	mlx_loop_hook(data.mlx_p, render_image, &data);
 	mlx_loop(data.mlx_p);

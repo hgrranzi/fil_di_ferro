@@ -27,3 +27,9 @@ int	press_key(int key, t_data *data)
 	//printf("%d\n", key);
 	return (0);
 }
+
+int	krestik(int key, t_data *data)
+{
+	exit(0);
+	return (0);
+}

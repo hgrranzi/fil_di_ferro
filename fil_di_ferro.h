@@ -49,6 +49,7 @@ void		check_args(int argc, char **argv, t_data *data);
 void		start_mlx(t_data *data);
 void		count_win_config(t_data *data, int screen_width, int screen_height);
 int			press_key(int key, t_data *data);
+int			krestik(int key, t_data *data);
 
 void		check_config(t_data *data, char *filename);
 void		save_config(t_lst **first_lst, t_data *data);
