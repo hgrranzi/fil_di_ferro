@@ -29,4 +29,7 @@ t_vector	sum_vectors(t_vector v1, t_vector v2);
 t_vector	scale_vector(t_vector v, float scale);
 t_vector	isometric_matrix(t_vector v, float angle);
 
+t_vector	rotate_x(t_vector v, float angle);
+t_vector	rotate_y(t_vector v, float angle);
+t_vector	rotate_z(t_vector v, float angle);
 #endif
