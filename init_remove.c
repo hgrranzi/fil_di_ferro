@@ -15,16 +15,6 @@ void	init_data(t_data *data)
 	data->colors = NULL;
 	data->map_width = 0;
 	data->map_height = 0;
-
-	//data->point->x = 0;
-	//data->point->y = 0;
-	//data->point->z = 0;
-	data->color_flag = 0;
-	data->offset.x = OFFSET;
-	data->offset.y = OFFSET;
-	data->rot_angle = 0;
-	data->iso_angle = ANGLE;
-	data->zoom = ZOOM; // that should be calculated depending on the map size
 }
 
 void	free_arr(int **arr)

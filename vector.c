@@ -26,13 +26,13 @@ t_vector		sum_vectors(t_vector v1, t_vector v2)
 	return (res_v);
 }
 
-t_vector		scale_vector(t_vector v, float scale)
+t_vector		scale_vector(t_vector v, float scale, int diviser)
 {
 	t_vector	scaled_v;
 
 	scaled_v.x = v.x * scale;
 	scaled_v.y = v.y * scale;
-	scaled_v.z = v.z;
+	scaled_v.z = v.z * scale / diviser;
 	return (scaled_v);
 }
 

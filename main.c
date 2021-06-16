@@ -13,10 +13,26 @@ void	check_args(int argc, char **argv, t_data *data)
 		finish_it(ERR_ARGS, data);
 }
 
+int		count_zoom(int map_width, int map_height)
+{
+	int	max_len;
+
+	if (map_width > map_height)
+		max_len = map_width;
+	else
+		max_len = map_height;
+	return (2000 / max_len); // define
+}
+
 void	count_win_config(t_data *data, int screen_width, int screen_height)
 {
 	data->win_width = screen_width * WIN_SCALE;
 	data->win_height = screen_height * WIN_SCALE;
+	data->offset.x = 0;
+	data->offset.y = 0;
+	data->color_flag = 0;
+	data->rot_angle = ROT_ANGLE;
+	data->iso_angle = ISO_ANGLE;
 }
 
 void	start_mlx(t_data *data)
@@ -25,10 +41,11 @@ void	start_mlx(t_data *data)
 	int	screen_height;
 
 	data->mlx_p = mlx_init();
+	data->zoom = count_zoom(data->map_width, data->map_height);
+	data->zoom_diviser = ZOOM_DIVIZER;
 	mlx_get_screen_size(&screen_width, &screen_height); // for mac
 	//mlx_get_screen_size(data->mlx_p, &screen_width, &screen_height); // for linux
 	count_win_config(data, screen_width, screen_height);
-	//printf("%d %d", screen_width, screen_height);
 	data->win_p = mlx_new_window(data->mlx_p, data->win_width, data->win_height, "magic");
 	if (!data->win_p)
 		finish_it(errno, data);
@@ -49,7 +66,6 @@ int	main(int argc, char **argv)
 	data.image = &image;
 	check_args(argc, argv, &data);
 	check_config(&data, argv[1]);
-	//printf("width = %d height = %d", data.map_width, data.map_height);
 	start_mlx(&data);
 	mlx_hook(data.win_p, 17, 1L << 0, krestik, &data);
 	mlx_hook(data.win_p, 2, 1L << 0, press_key, &data);

@@ -18,7 +18,6 @@
 # define MAX_INT 2147483647
 # define ERR_ATOI 1073741824
 # define BUFFER_SIZE 64
-# define ZOOM 16
 # define OFFSET 256
 # define HEX_CHARS "0123456789abcdef"
 # define OCT_CHARS "01234567"

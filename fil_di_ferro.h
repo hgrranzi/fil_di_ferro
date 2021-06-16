@@ -14,6 +14,7 @@
 //# include "minilibx-linux/mlx.h" // for linux
 
 # define WIN_SCALE 3 / 4
+# define ZOOM_DIVIZER 64
 # define HIGH_COLOR 16568903
 # define DEEP_COLOR 6053119
 
@@ -39,6 +40,7 @@ typedef struct s_data
 	int			map_width;
 	int			map_height;
 	int			zoom;
+	int			zoom_diviser;
 	t_intvector	offset;
 	int			color_flag;
 	float		iso_angle;

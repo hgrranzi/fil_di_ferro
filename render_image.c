@@ -51,6 +51,7 @@ void	draw_line(t_data *data, t_vector point1, t_vector point2)
 	int			color;
 	int			color2;
 	int			color_step;
+	t_intvector	offset;
 
 	point1.z = data->map[(int)point1.y][(int)point1.x];
 	point2.z = data->map[(int)point2.y][(int)point2.x];
@@ -64,13 +65,15 @@ void	draw_line(t_data *data, t_vector point1, t_vector point2)
 		color = data->colors[(int)point1.y][(int)point1.x];
 		color2 = data->colors[(int)point2.y][(int)point2.x];
 	}
-	point1 = scale_vector(point1, data->zoom);
-	point2 = scale_vector(point2, data->zoom);
+	point1 = scale_vector(point1, data->zoom, data->zoom_diviser);
+	point2 = scale_vector(point2, data->zoom, data->zoom_diviser);
 	point1 = rotate(point1, data->rot_angle);
 	point2 = rotate(point2, data->rot_angle);
 	point1 = isometric_matrix(point1, data->iso_angle);
 	point2 = isometric_matrix(point2, data->iso_angle);
-	move_points(&point1, &point2, data->offset);
+	offset.x = ((data->win_width - data->map_width * data->zoom) >> 1) + data->offset.x;
+	offset.y = ((data->win_height - data->map_height * data->zoom) >> 1) + data->offset.y;
+	move_points(&point1, &point2, offset);
 	step = know_vector(point1, point2);
 	count_step = max_step(step);
 	step = get_step(count_step, step);
