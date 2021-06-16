@@ -13,7 +13,7 @@
 # include "mlx/mlx.h" // for mac
 //# include "minilibx-linux/mlx.h" // for linux
 
-# define BIG_MAP 500
+# define WIN_SCALE 3 / 4
 # define HIGH_COLOR 16568903
 # define DEEP_COLOR 6053119
 
