@@ -41,7 +41,8 @@ typedef struct s_data
 	int			zoom;
 	t_intvector	offset;
 	int			color_flag;
-	float		angle;
+	float		iso_angle;
+	float		rot_angle;
 }				t_data;
 
 void		check_args(int argc, char **argv, t_data *data);

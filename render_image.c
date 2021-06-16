@@ -66,8 +66,10 @@ void	draw_line(t_data *data, t_vector point1, t_vector point2)
 	}
 	point1 = scale_vector(point1, data->zoom);
 	point2 = scale_vector(point2, data->zoom);
-	point1 = isometric_matrix(point1, data->angle);
-	point2 = isometric_matrix(point2, data->angle);
+	point1 = rotate(point1, data->rot_angle);
+	point2 = rotate(point2, data->rot_angle);
+	point1 = isometric_matrix(point1, data->iso_angle);
+	point2 = isometric_matrix(point2, data->iso_angle);
 	move_points(&point1, &point2, data->offset);
 	step = know_vector(point1, point2);
 	count_step = max_step(step);

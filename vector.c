@@ -32,7 +32,7 @@ t_vector		scale_vector(t_vector v, float scale)
 
 	scaled_v.x = v.x * scale;
 	scaled_v.y = v.y * scale;
-	scaled_v.z = v.z * scale;
+	scaled_v.z = v.z;
 	return (scaled_v);
 }
 
@@ -46,27 +46,7 @@ t_vector		isometric_matrix(t_vector v, float angle)
 	return (new_v);
 }
 
-t_vector	rotate_x(t_vector v, float angle)
-{
-	t_vector	new_v;
-
-	new_v.x = v.x;
-	new_v.y = v.y * cos(angle) + v.z * sin(angle);
-	new_v.z = -v.y * sin(angle) + v.z * cos(angle);
-	return (new_v);
-}
-
-t_vector	rotate_y(t_vector v, float angle)
-{
-	t_vector	new_v;
-
-	new_v.x = v.x* cos(angle) + v.z * sin(angle);
-	new_v.y = v.y;
-	new_v.z = -v.x * sin(angle) + v.z * cos(angle);
-	return (new_v);
-}
-
-t_vector	rotate_z(t_vector v, float angle)
+t_vector	rotate(t_vector v, float angle)
 {
 	t_vector	new_v;
 
