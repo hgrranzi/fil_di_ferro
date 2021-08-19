@@ -58,7 +58,6 @@ int	main(int argc, char **argv)
 {
 	t_data		data;
 	t_image		image;
-	t_vector	point;
 
 	init_data(&data);
 	data.image = &image;
