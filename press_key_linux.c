@@ -8,23 +8,34 @@
 
 int	press_key(int key, t_data *data)
 {
-	if (key == 65307)
+	if (key == KEY_ESC)
 		finish_it(0, data);
-	if (key == 61)
-		data->zoom += ZOOM / 10; // need a function for zoom and offset change
-	else if (key == 45)
-		data->zoom -= ZOOM / 10; // need a function for zoom and offset change
-	else if (key == 48)
+	else if (key == KEY_PLUS)
+		data->zoom++;
+	else if (key == KEY_MINUS && data->zoom - 1 > 1)
+		data->zoom--;
+	else if (key == KEY_ZERO)
 		data->color_flag = (!data->color_flag);
-	else if (key == 65362)
-		data->angle -= 0.05;
-	else if (key == 65364)
-		data->angle += 0.05;
-	else if (key == 65363)
-		data->offset += 16;
-	else if (key == 65361)
-		data->offset -= 16;
-	//printf("%d\n", key);
+	else if (key == KEY_S && (data->iso_angle - STEP_ANGLE >= 0))
+		data->iso_angle -= STEP_ANGLE;
+	else if (key == KEY_W && (data->iso_angle + STEP_ANGLE <= ISO_MAX_ANGLE))
+		data->iso_angle += STEP_ANGLE;
+	else if (key == KEY_D)
+		data->rot_angle -= STEP_ANGLE;
+	else if (key == KEY_A)
+		data->rot_angle += STEP_ANGLE;
+	else if (key == KEY_UP)
+		data->offset.y += STEP_OFFSET;
+	else if (key == KEY_DOWN)
+		data->offset.y -= STEP_OFFSET;
+	else if (key == KEY_RIGHT)
+		data->offset.x -= STEP_OFFSET;
+	else if (key == KEY_LEFT)
+		data->offset.x += STEP_OFFSET;
+	else if (key == KEY_MINUS_RIGHT && ((data->zoom_diviser << 1) <= ZOOM_DIVIZER))
+		data->zoom_diviser <<= 1;
+	else if (key == KEY_PLUS_RIGHT && ((data->zoom_diviser >> 1) >= 1))
+		data->zoom_diviser >>= 1;
 	return (0);
 }
 

@@ -12,7 +12,8 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <string.h>
-# include "keys_mac.h"
+//# include "keys_mac.h"
+# include "keys_linux.h"
 
 # define MAX_INT 2147483647
 # define ERR_ATOI 1073741824
