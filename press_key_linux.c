@@ -41,6 +41,10 @@ int	press_key(int key, t_data *data)
 
 int	krestik(int key, t_data *data)
 {
+	if (key && data)
+	{
+		;
+	}
 	exit(0);
 	return (0);
 }

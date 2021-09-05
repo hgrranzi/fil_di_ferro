@@ -1,6 +1,6 @@
 NAME = fil_di_ferro
 
-COMPILE = gcc #-Wall -Wextra -Werror
+COMPILE = gcc -Wall -Wextra -Werror
 
 MLX = -Iminilibx-linux -Lminilibx-linux
 
