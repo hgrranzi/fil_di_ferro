@@ -42,8 +42,7 @@ void	start_mlx(t_data *data)
 	data->mlx_p = mlx_init();
 	data->zoom = count_zoom(data->map_width, data->map_height);
 	data->zoom_diviser = ZOOM_DIVIZER;
-	//mlx_get_screen_size(&screen_width, &screen_height); // for mac
-	mlx_get_screen_size(data->mlx_p, &screen_width, &screen_height); // for linux
+	mlx_get_screen_size(&screen_width, &screen_height);
 	count_win_config(data, screen_width, screen_height);
 	data->win_p = mlx_new_window(data->mlx_p, data->win_width, data->win_height, "magic");
 	if (!data->win_p)
