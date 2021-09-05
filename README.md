@@ -21,6 +21,27 @@ Each number in the file corresponds to a point in space:
   <li>The second value (if exists) corresponds to its color</li>
 </ul>
 
+## Installation
+
+	git clone --recurse-submodules https://github.com/hgrranzi/fil_di_ferro.git
+
+For Mac OS:
+
+	make
+
+For Linux:
+
+	git checkout linux
+	make
+
+## Getting started
+
+	./fil_di_ferro [path to the config file with the fdf extention]
+
+Exemple:
+
+	./fil_di_ferro test_maps/europe.fdf
+
 ## Preview
 
 Keyboard control
