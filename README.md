@@ -49,12 +49,11 @@ Example:
 Keyboard control
 
 <ul>
+  <li><b>0</b>:      ...</li>
   <li><b>+</b>:      ...</li>
-  <li><b>+</b>:      ...</li>
-  <li><b>+</b>:      ...</li>
-  <li><b>+</b>:      ...</li>
-  <li><b>+</b>:      ...</li>
-  <li><b>+</b>:      ...</li>
+  <li><b>-</b>:      ...</li>
+  <li><b>w+</b>:      ...</li>
+  <li><b>s</b>:      ...</li>
+  <li><b>a</b>:      ...</li>
+  <li><b>d</b>:      ...</li>
 </ul>
-
-
