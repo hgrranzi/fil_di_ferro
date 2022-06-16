@@ -5,7 +5,7 @@ Basics of graphic programming
 
 ## Status
 
-IN PROGRESS
+COMPLETED
 
 ## Description
 
