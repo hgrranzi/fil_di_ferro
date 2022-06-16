@@ -46,14 +46,20 @@ Example:
 
 ## Preview
 
+![file](./test_maps/wb.png) ![file](./test_maps/color.png)
+
 Keyboard control
 
 <ul>
   <li><b>0</b>:      color mode</li>
   <li><b>+</b>:      zoom +</li>
   <li><b>-</b>:      zoom -</li>
-  <li><b>w</b>:      ...</li>
-  <li><b>s</b>:      ...</li>
-  <li><b>a</b>:      ...</li>
-  <li><b>d</b>:      ...</li>
+  <li><b>w</b>:      rotate up</li>
+  <li><b>s</b>:      rotate down</li>
+  <li><b>a</b>:      rotate left</li>
+  <li><b>d</b>:      rotate right</li>
+  <li><b>up arrow</b>:      move up</li>
+  <li><b>down arrow</b>:    move down</li>
+  <li><b>left arrow</b>:    move left</li>
+  <li><b>right arrow</b>:   move right</li>
 </ul>
